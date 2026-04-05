@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #6ea8d9;
+    font-family: Arial, sans-serif;
+}
+
+.signup-container {
+    width: 350px;
+    margin: 100px auto;
+    text-align: center;
+    color: #000;
+}
+
+.signup-container h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.login-text {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.login-text a {
+    color: blue;
+    text-decoration: none;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+}
+
+button {
+    margin-top: 20px;
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    background: transparent;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.terms {
+    font-size: 10px;
+    margin-top: 40px;
+    color: #111;
+}
