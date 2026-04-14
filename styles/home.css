@@ -110,8 +110,8 @@ html {
 
 /* WHY SECTION */
 .why {
-    background: #005F7B;
-    color: #fff;
+    background: linear-gradient(to right, #99BAB9, #a78553);
+    color: #1b2036;
     text-align: center;
     padding: 30px;
 }
@@ -120,7 +120,7 @@ html {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 50px;
     gap: 50px;
 }
 
@@ -136,7 +136,7 @@ html {
 
 /* ABOUT SECTION */
 .about {
-    background: #6ea8d9;
+    background: linear-gradient(to right, #99BAB9, #a78553);
     padding: 50px;
 }
 
@@ -147,18 +147,18 @@ html {
 }
 
 .about-image img {
-    width: 300px;
+    width: 500px;
     border-radius: 10px;
 }
 
 .about-text {
-    color: #fff;
+    color: #1b2036;
 }
 
 .about-text h3 {
     margin-bottom: 15px;
 }
-
+    
 /* CONTACT SECTION */
 .contact {
     height: 350px;
@@ -172,7 +172,7 @@ html {
 
 /* 👇 ADD THIS (parent background fix) */
 body {
-    background-color: #7a3e1d; /* brown color */
+    background: linear-gradient(to right, #99BAB9, #a78553);
 }
 
 /* overlay for readability */
