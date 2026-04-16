@@ -13,23 +13,21 @@
             Already have an account? <a href="#">Log in</a>
         </p>
 
-        <form onsubmit="singupUser(event)">
+     <form onsubmit="singupUser(event)">
     <input type="email" id="email" placeholder="Email" required>
     <input type="password" id="password" placeholder="Choose a password" required>
-    
+
     <button type="submit">Sign Up</button>
 </form>
 
-        <p class="terms">
-            * By signing up, you agree to our Terms of Use and acknowledge you’ve read our Privacy Policy.<br><br>  
-            This site is protected by reCAPTCHA Enterprise. Google’s Privacy Policy and Terms of Service apply.
-        </p>
-    </div>
+<script>
+console.log("JS WORKING");
 
-    <script src="singup.js"></script>
+function singpuUser(event) {
+    event.preventDefault();
 
-    <script>
-function singupUser() {
+    console.log("Signup button clicked");
+
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -38,15 +36,23 @@ function singupUser() {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
+        body: JSON.stringify({ email, password })
     })
     .then(res => res.text())
     .then(data => {
+        console.log("Response:", data);
         alert(data);
-    });
+    })
+    .catch(err => console.error(err));
+}
+</script>
+
+<script>
+console.log("INLINE JS WORKING");
+
+function singupUser(event) {
+    event.preventDefault();
+    console.log("BUTTON CLICKED");
 }
 </script>
 </body>
