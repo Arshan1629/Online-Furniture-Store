@@ -7,18 +7,18 @@
 </head>
 <body>
 
-    <div class="signup-container">
+    <div class="singup-container">
         <h1>Sign Up</h1>
         <p class="login-text">
             Already have an account? <a href="#">Log in</a>
         </p>
 
-        <form onsubmit="signupUser(event)">
+        <form onsubmit="singupUser(event)">
     <input type="email" id="email" placeholder="Email" required>
     <input type="password" id="password" placeholder="Choose a password" required>
-
+    
     <button type="submit">Sign Up</button>
-        </form>
+</form>
 
         <p class="terms">
             * By signing up, you agree to our Terms of Use and acknowledge you’ve read our Privacy Policy.<br><br>  
@@ -29,7 +29,7 @@
     <script src="singup.js"></script>
 
     <script>
-function signupUser() {
+function singupUser() {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 

@@ -1,15 +1,13 @@
-function signupUser(event) {
-    event.preventDefault(); // 🚀 VERY IMPORTANT (stops page reload)
+function singupUser(event) {
+    event.preventDefault(); // 🚨 stops page reload
 
-    console.log("Signup button clicked");
+    console.log("Singup button clicked");
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    if (email === "" || password === "") {
-        alert("Please fill all fields");
-        return;
-    }
+    console.log("Email:", email);
+    console.log("Password:", password);
 
     fetch("http://localhost:8080/signup", {
         method: "POST",
@@ -21,13 +19,12 @@ function signupUser(event) {
             password: password
         })
     })
-    .then(response => response.text())
+    .then(res => res.text())
     .then(data => {
         console.log("Response:", data);
         alert(data);
     })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("Something went wrong!");
+    .catch(err => {
+        console.error("Error:", err);
     });
 }
