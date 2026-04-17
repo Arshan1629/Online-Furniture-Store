@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 15px 40px;
-    background: #7fa9d6;
+    background: linear-gradient(to right, #99BAB9, #a78553);
     border-bottom: 2px solid #333;
 }
 
