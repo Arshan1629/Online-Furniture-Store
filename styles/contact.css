@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #6ea8d9;
+    background: linear-gradient(to right, #99BAB9, #a78553);
 }
 
 /* NAVBAR */
