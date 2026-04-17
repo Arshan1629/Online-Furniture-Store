@@ -49,6 +49,7 @@ body {
 }
 
 .line {
+    text-align: center;
     flex: 1;
     height: 2px;
     background: #000;
@@ -56,6 +57,7 @@ body {
 }
 
 .subtitle {
+    text-align: center;
     margin: 20px 0 40px;
     max-width: 600px;
 }
