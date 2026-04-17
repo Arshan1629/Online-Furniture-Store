@@ -1,13 +1,16 @@
-function singupUser(event) {
-    event.preventDefault(); // 🚨 stops page reload
-
-    console.log("Singup button clicked");
+function singupUser() {
+    console.log("Signup button clicked");
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
 
     console.log("Email:", email);
     console.log("Password:", password);
+
+    if (email === "" || password === "") {
+        alert("Please fill all fields");
+        return;
+    }
 
     fetch("http://localhost:8080/signup", {
         method: "POST",
@@ -26,5 +29,6 @@ function singupUser(event) {
     })
     .catch(err => {
         console.error("Error:", err);
+        alert("Something went wrong!");
     });
 }
