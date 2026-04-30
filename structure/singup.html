@@ -3,55 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/Online-Furniture-Store/styles/singup.css">
+    <link rel="stylesheet" href="/Online-Furniture-Store/styles/signup.css">
 </head>
 <body>
 
-    <div class="singup-container">
+    <div class="signup-container">
         <h1>Sign Up</h1>
         <p class="login-text">
             Already have an account? <a href="#">Log in</a>
         </p>
 
-     <form onsubmit="singupUser(event)">
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Choose a password" required>
+        <form>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Choose a password" required>
 
-    <button type="button" onclick="singupUser()">Sign Up</button>
-<script>
-console.log("JS WORKING");
+            <button type="button" onclick="signupUser()">Sign Up</button>
+        </form>
 
-function singpuUser(event) {
-    event.preventDefault();
+        <p class="terms">
+            * By signing up, you agree to our Terms of Use and Privacy Policy.
+        </p>
+    </div>
 
-    console.log("Signup button clicked");
+    <script>
+        function signupUser() {
+            console.log("Signup button clicked");
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
 
-    fetch("http://localhost:8080/signup", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-    })
-    .then(res => res.text())
-    .then(data => {
-        console.log("Response:", data);
-        alert(data);
-    })
-    .catch(err => console.error(err));
-}
-</script>
+            console.log("Email:", email);
+            console.log("Password:", password);
 
-<script>
-console.log("INLINE JS WORKING");
+            if (email === "" || password === "") {
+                alert("Please fill all fields");
+                return;
+            }
 
-function singupUser(event) {
-    event.preventDefault();
-    console.log("BUTTON CLICKED");
-}
-</script>
+            fetch("http://localhost:8080/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+            .then(res => res.text())
+            .then(data => {
+                console.log("Response:", data);
+                alert(data);
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                alert("Something went wrong!");
+            });
+        }
+    </script>
+
 </body>
 </html>
