@@ -32,7 +32,7 @@ form input {
     padding: 10px;
     margin: 15px 0;
     border: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 2px solid #000;
     background: transparent;
     outline: none;
 }
