@@ -2,65 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
     <link rel="stylesheet" href="/Online-Furniture-Store/styles/login.css">
 </head>
+
 <body>
 
-    <div class="signup-container">
+    <div class="login-container">
+
         <h1>Login</h1>
-        <p class="login
-        -text">
+
+        <p class="login-text">
+            Don’t have an account?
+            <a href="/Online-Furniture-Store/structure/singup.html">Sign Up</a>
         </p>
 
-        <form>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Choose a password" required>
+        <form id="loginForm">
 
-            <button type="button" onclick="signupUser()">Login</button>
+            <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
         </form>
 
         <p class="terms">
-            * By login up, you agree to our Terms of Use and Privacy Policy.
+            * By logging in, you agree to our Terms of Use and Privacy Policy.
         </p>
+
     </div>
 
-    <script>
-        function signupUser() {
-            console.log("Signup button clicked");
-
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-
-            console.log("Email:", email);
-            console.log("Password:", password);
-
-            if (email === "" || password === "") {
-                alert("Please fill all fields");
-                return;
-            }
-
-            fetch("http://localhost:8080/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            })
-            .then(res => res.text())
-            .then(data => {
-                console.log("Response:", data);
-                alert(data);
-            })
-            .catch(err => {
-                console.error("Error:", err);
-                alert("Something went wrong!");
-            });
-        }
-    </script>
+    <script src="/Online-Furniture-Store/scripts/login.js"></script>
 
 </body>
 </html>

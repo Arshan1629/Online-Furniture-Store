@@ -1,8 +1,18 @@
-function loginUser(){
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", loginUser);
 
-    const email = document.getElementById("email").value;
+function loginUser(event) {
 
-    const password = document.getElementById("password").value;
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (email === "" || password === "") {
+        alert("Please fill all fields");
+        return;
+    }
 
     fetch("http://localhost:8080/login", {
 
@@ -13,19 +23,19 @@ function loginUser(){
         },
 
         body: JSON.stringify({
-
             email: email,
             password: password
-
         })
 
     })
 
-    .then(res => res.text())
+    .then(response => response.text())
 
     .then(data => {
 
         alert(data);
+
+        console.log(data);
 
     })
 
@@ -33,6 +43,7 @@ function loginUser(){
 
         console.error("Error:", error);
 
-    });
+        alert("Something went wrong!");
 
+    });
 }

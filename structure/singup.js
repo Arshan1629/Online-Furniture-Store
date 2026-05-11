@@ -1,34 +1,53 @@
-function singupUser() {
-    console.log("Signup button clicked");
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", loginUser);
+
+function loginUser(event) {
+
+    event.preventDefault();
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
-
-    console.log("Email:", email);
-    console.log("Password:", password);
 
     if (email === "" || password === "") {
         alert("Please fill all fields");
         return;
     }
 
-    fetch("http://localhost:8080/signup", {
+    fetch("http://localhost:8080/login", {
+
         method: "POST",
+
         headers: {
             "Content-Type": "application/json"
         },
+
         body: JSON.stringify({
             email: email,
             password: password
         })
+
     })
-    .then(res => res.text())
+
+    .then(response => response.text())
+
     .then(data => {
-        console.log("Response:", data);
+
         alert(data);
+
+        if (data === "Login Successful") {
+
+            window.location.href = "index.html";
+
+        }
+
     })
-    .catch(err => {
-        console.error("Error:", err);
+
+    .catch(error => {
+
+        console.error("Error:", error);
+
         alert("Something went wrong!");
+
     });
 }
