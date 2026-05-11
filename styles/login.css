@@ -1,102 +1,58 @@
-*{
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #99BAB9, #a78553);
+    font-family: Arial, sans-serif;
 }
 
-body{
-
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: linear-gradient(
-        90deg,
-        #c8d8d0 0%,
-        #cfc8b1 100%
-    );
-}
-
-.login-container{
-
-    width: 400px;
+.signup-container {
+    width: 350px;
+    margin: 100px auto;
     text-align: center;
+    color: #000;
 }
 
-.login-container h1{
-
-    font-size: 60px;
-    font-weight: bold;
-
+.signup-container h1 {
+    font-size: 34px;
     margin-bottom: 10px;
 }
 
-.login-container p{
-
-    margin-bottom: 50px;
-    font-size: 18px;
+.login-text {
+    font-size: 14px;
+    margin-bottom: 30px;
 }
 
-.login-container p a{
-
+.login-text a {
     color: blue;
     text-decoration: none;
 }
 
-.input-box{
-
+form input {
     width: 100%;
-    margin-bottom: 40px;
-}
-
-.input-box input{
-
-    width: 100%;
-
-    border: none;
-    border-bottom: 2px solid black;
-
-    background: transparent;
-
     padding: 10px;
-
-    font-size: 18px;
-
+    margin: 15px 0;
+    border: none;
+    border-bottom: 2px solid #000;
+    background: transparent;
     outline: none;
 }
 
-.login-btn{
-
-    width: 130px;
-    height: 45px;
-
-    border-radius: 30px;
-
-    border: 1px solid black;
-
+button {
+    margin-top: 20px;
+    padding: 8px 25px;
+    border-radius: 20px;
+    border: 1px solid #000;
     background: transparent;
-
     cursor: pointer;
-
-    font-size: 20px;
-
-    margin-top: 10px;
-
-    transition: 0.3s;
 }
 
-.login-btn:hover{
-
-    background-color: black;
-    color: white;
+button:hover {
+    background: #000;
+    color: #fff;
 }
 
-.terms{
-
-    margin-top: 50px;
-    font-size: 13px;
+.terms {
+    font-size: 10px;
+    margin-top: 40px;
+    color: #111;
 }

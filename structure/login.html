@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Login</title>
-
-    <link rel="stylesheet" href="login.css">
-
+    <link rel="stylesheet" href="/Online-Furniture-Store/styles/login.css">
 </head>
-
 <body>
 
-    <div class="login-container">
-
-        <h1>Log In</h1>
-
-        <p>
-            New to FurniCraft?
-            <a href="signup.html">Sign Up</a>
+    <div class="signup-container">
+        <h1>Login</h1>
+        <p class="login
+        -text">
         </p>
 
-        <div class="input-box">
+        <form>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Choose a password" required>
 
-            <input
-                type="email"
-                id="email"
-                placeholder="Email"
-                autocomplete="email"
-                required
-            >
-
-        </div>
-
-        <div class="input-box">
-
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                autocomplete="current-password"
-                required
-            >
-
-        </div>
-
-        <button class="login-btn" onclick="loginUser()">
-
-            Log In
-
-        </button>
+            <button type="button" onclick="signupUser()">Login</button>
+        </form>
 
         <p class="terms">
-
-            * By logging in, you agree to our Terms of Use and Privacy Policy.
-
+            * By login up, you agree to our Terms of Use and Privacy Policy.
         </p>
-
     </div>
 
-    <script src="login.js"></script>
+    <script>
+        function signupUser() {
+            console.log("Signup button clicked");
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            console.log("Email:", email);
+            console.log("Password:", password);
+
+            if (email === "" || password === "") {
+                alert("Please fill all fields");
+                return;
+            }
+
+            fetch("http://localhost:8080/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
+            })
+            .then(res => res.text())
+            .then(data => {
+                console.log("Response:", data);
+                alert(data);
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                alert("Something went wrong!");
+            });
+        }
+    </script>
 
 </body>
 </html>
