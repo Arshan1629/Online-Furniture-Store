@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,9 @@
 
         <p class="login-text">
             Don’t have an account?
-            <a href="/Online-Furniture-Store/structure/singup.html">Sign Up</a>
+            <a href="/Online-Furniture-Store/structure/signup.html">
+                Sign Up
+            </a>
         </p>
 
         <form id="loginForm">
@@ -49,57 +52,69 @@
 
     <script>
 
-function loginUser() {
+        document.getElementById("loginForm")
+        .addEventListener("submit", loginUser);
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+        function loginUser(event) {
 
-    if(email === "" || password === "") {
-        alert("Please fill all fields");
-        return;
-    }
+            // Prevent page refresh
+            event.preventDefault();
 
-    fetch("http://localhost:8080/login", {
+            const email = document.getElementById("email").value.trim();
 
-        method: "POST",
+            const password = document.getElementById("password").value.trim();
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+            if(email === "" || password === "") {
 
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
+                alert("Please fill all fields");
+                return;
 
-    })
+            }
 
-    .then(res => res.text())
+            fetch("http://localhost:8080/login", {
 
-    .then(data => {
+                method: "POST",
 
-        alert(data);
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-        if(data === "Login Successful!") {
+                body: JSON.stringify({
 
-            // redirect after login
-            window.location.href = "index.html";
+                    email: email,
+                    password: password
+
+                })
+
+            })
+
+            .then(res => res.text())
+
+            .then(data => {
+
+                alert(data);
+
+                if(data === "Login Successful!") {
+
+                    // redirect after login
+                    window.location.href = "/Online-Furniture-Store/index.html";
+
+                }
+
+            })
+
+            .catch(err => {
+
+                console.log(err);
+
+                alert("Something went wrong");
+
+            });
+
         }
 
-    })
-
-    .catch(err => {
-
-        console.log(err);
-        alert("Something went wrong");
-
-    });
-
-}
-
-</script>
-
-    <script src="/Online-Furniture-Store/scripts/login.js"></script>
+    </script>
 
 </body>
+
 </html>
