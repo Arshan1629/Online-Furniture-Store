@@ -26,41 +26,67 @@
     </div>
 
     <script>
-        function signupUser() {
-            console.log("Signup button clicked");
 
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
+function signupUser() {
 
-            console.log("Email:", email);
-            console.log("Password:", password);
+    console.log("Signup button clicked");
 
-            if (email === "" || password === "") {
-                alert("Please fill all fields");
-                return;
-            }
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-            fetch("http://localhost:8080/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            })
-            .then(res => res.text())
-            .then(data => {
-                console.log("Response:", data);
-                alert(data);
-            })
-            .catch(err => {
-                console.error("Error:", err);
-                alert("Something went wrong!");
-            });
+    console.log("Email:", email);
+    console.log("Password:", password);
+
+    if (email === "" || password === "") {
+
+        alert("Please fill all fields");
+        return;
+
+    }
+
+    fetch("http://localhost:8080/signup", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+
+    })
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        console.log("Response:", data);
+
+        alert(data);
+
+        // REDIRECT TO HOME PAGE
+        if (data.includes("success") || data.includes("Success")) {
+
+            window.location.href = "home.html";
+
         }
-    </script>
+
+    })
+
+    .catch(err => {
+
+        console.error("Error:", err);
+
+        alert("Something went wrong!");
+
+    });
+
+}
+
+</script>
 
 </body>
 </html>

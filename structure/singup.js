@@ -10,8 +10,10 @@ function loginUser(event) {
     const password = document.getElementById("password").value.trim();
 
     if (email === "" || password === "") {
+
         alert("Please fill all fields");
         return;
+
     }
 
     fetch("http://localhost:8080/login", {
@@ -35,9 +37,12 @@ function loginUser(event) {
 
         alert(data);
 
-        if (data === "Login Successful") {
+        console.log(data);
 
-            window.location.href = "/Online-Furniture-Store/structure/home.html";
+        // LOGIN SUCCESS
+        if (data.includes("Successful")) {
+
+            window.location.href = "home.html";
 
         }
 
@@ -50,4 +55,5 @@ function loginUser(event) {
         alert("Something went wrong!");
 
     });
+
 }
