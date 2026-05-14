@@ -67,7 +67,53 @@
     <footer>
         <p>Copyright © 2025 AN Repair Services . All rights reserved.</p>
     </footer>
+    <script>
 
-    <script src="contact.js"></script>
+function sendContactForm(event) {
+
+    event.preventDefault();
+
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    fetch("http://localhost:8080/contact", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            message: message
+        })
+
+    })
+
+    .then(res => res.text())
+
+    .then(data => {
+
+        alert(data);
+
+    })
+
+    .catch(err => {
+
+        console.log(err);
+
+        alert("Something went wrong");
+
+    });
+
+}
+
+</script>
+
 </body>
 </html>
