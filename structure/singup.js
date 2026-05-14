@@ -37,7 +37,7 @@ function loginUser(event) {
 
         if (data === "Login Successful") {
 
-            window.location.href = "index.html";
+            window.location.href = "/Online-Furniture-Store/structure/home.html";
 
         }
 
